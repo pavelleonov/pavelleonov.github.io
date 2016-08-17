@@ -1,0 +1,23 @@
+<h1>NJ servers state</h1>
+<span id="table"></span>
+
+<script>
+	hosts = ["stg-web2", "stg-web1", "wls1", "web12", "web13", "web22", "web23", "web24", "web25", "web26", "web27", "web31", "web32", "web33", "web34", "web43", "web41", "web44", "web45", "web46", "web47", "web42", "web48", "web58", "web51", "web52", "web53", "web54", "web55", "web56", "web57"];
+	
+	// <tr><td>stg-web2:</td><td><iframe frameborder=0 marginheight=0 marginwidth=0 height=16 scrolling=no src=http://stg-web2.hosts-app.com:8480/keepalive/></td></tr>
+	str1 = "<tr><td>";
+	str2 = ":</td><td><iframe frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\" height=\"16\" scrolling=\"no\" src=\"http://";
+	str3 = ".hosts-app.com:8480/keepalive\"/></td></tr>\n";
+	
+	function refreshStates() {
+		content = "<table border=\"1\">\n";
+		hosts.forEach(function(entry) {
+			content += str1 + entry + str2 + entry + str3;
+		});
+		content += "</table>\n-resize";
+		alert(content);
+		document.getElementById("table").innerHTML = content;
+	}
+	
+	refreshStates();
+</script>
